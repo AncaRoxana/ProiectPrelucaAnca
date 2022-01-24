@@ -1,0 +1,76 @@
+﻿@page
+@model ProiectPrelucaAnca.Pages.Angajati.DeleteModel
+
+@{
+    ViewData["Title"] = "Sterge Angajat";
+}
+
+<h1>Sterge</h1>
+
+<h3>Sunteti sigur ca doriti sa stergeti acest angajat?</h3>
+<div>
+   
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Angajat.NumarCtr)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Angajat.NumarCtr)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Angajat.Nume)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Angajat.Nume)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Angajat.Prenume)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Angajat.Prenume)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Angajat.DataNasterii)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Angajat.DataNasterii)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Angajat.DataAngajare)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Angajat.DataAngajare)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Angajat.Salariu)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Angajat.Salariu)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Angajat.Localitate)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Angajat.Localitate.Denumire)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Angajat.Departament)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Angajat.Departament.Denumire)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Angajat.Functie)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Angajat.Functie.Denumire)
+        </dd>
+    </dl>
+    
+    <form method="post">
+        <input type="hidden" asp-for="Angajat.ID" />
+        <input type="submit" value="Sterge" class="btn btn-danger" /> |
+        <a asp-page="./Index">Inapoi</a>
+    </form>
+</div>

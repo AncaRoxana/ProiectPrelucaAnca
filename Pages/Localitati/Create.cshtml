@@ -1,0 +1,38 @@
+﻿@page
+@model ProiectPrelucaAnca.Pages.Localitati.CreateModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Adauga</h1>
+
+<h4>Localitate</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Localitate.Denumire" class="control-label"></label>
+                <input asp-for="Localitate.Denumire" class="form-control" />
+                <span asp-validation-for="Localitate.Denumire" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label  class="control-label">Judet</label>
+                <select asp-for="Localitate.JudetID" class ="form-control" asp-items="ViewBag.JudetID"></select>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Adauga" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">Inapoi</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

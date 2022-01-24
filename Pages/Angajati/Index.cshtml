@@ -1,0 +1,105 @@
+﻿@page  "/"
+@model ProiectPrelucaAnca.Pages.Angajati.IndexModel
+
+@{
+    ViewData["Title"] = "Evidenta Angajati";
+}
+
+<h1>Evidenta Angajati</h1>
+
+<p>
+    <a asp-page="Create">Adauga Angajat Nou</a>
+</p>
+<form asp-page="./Index" method="get">
+    <div class="form-actions no-color">
+        <p>
+            Cauta Angajat (nume,prenume,functie sau salariu):
+            <input type="text" name="SearchName" value="@Model.CurrentFilter" />
+            <input type="submit" value="Cauta" class="btn btn-primary" /> |
+            <a asp-page="./Index">Reseteaza</a>
+        </p>
+    </div>
+</form>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Angajat[0].NumarCtr)
+            </th>
+            <th>
+                <a asp-page="./Index" asp-route-sortOrder="@Model.NumeSort" asp-route-currentFilter="@Model.CurrentFilter">
+                    @Html.DisplayNameFor(model => model.Angajat[0].Nume)
+                </a>
+            </th>
+            <th>
+                <a asp-page="./Index" asp-route-sortOrder="@Model.PrenumeSort" asp-route-currentFilter="@Model.CurrentFilter">
+                    @Html.DisplayNameFor(model => model.Angajat[0].Prenume)
+                </a>
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Angajat[0].DataNasterii)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Angajat[0].DataAngajare)
+            </th>
+            <th>
+                <a asp-page="./Index" asp-route-sortOrder="@Model.SalariuSort" asp-route-currentFilter="@Model.CurrentFilter">
+                    @Html.DisplayNameFor(model => model.Angajat[0].Salariu)
+                </a>
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Angajat[0].Localitate)
+            </th>
+            <th>
+                <a asp-page="./Index" asp-route-sortOrder="@Model.DepartamentSort" asp-route-currentFilter="@Model.CurrentFilter">
+                    @Html.DisplayNameFor(model => model.Angajat[0].Departament)
+                </a>
+            </th>
+            <th>
+                <a asp-page="./Index" asp-route-sortOrder="@Model.FunctieSort" asp-route-currentFilter="@Model.CurrentFilter">
+                    @Html.DisplayNameFor(model => model.Angajat[0].Functie)
+                </a>
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Angajat)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NumarCtr)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Nume)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Prenume)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DataNasterii)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DataAngajare)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Salariu)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Localitate.Denumire)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Departament.Denumire)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Functie.Denumire)
+                </td>
+                <td>
+                    <a asp-page="./Edit" asp-route-id="@item.ID">Editeaza</a> |
+                    <a asp-page="./Details" asp-route-id="@item.ID">Detalii</a> |
+                    <a asp-page="./Delete" asp-route-id="@item.ID">Sterge</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
